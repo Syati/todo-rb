@@ -6,3 +6,4 @@ RSpec.describe "static_pages/home", type: :view do
     assert_select 'h1', text: 'Home'
   end
 end
+
