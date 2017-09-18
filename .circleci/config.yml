@@ -8,6 +8,9 @@ jobs:
         environment:
           RAILS_ENV: test
       - image: circleci/mysql:5.7.18
+        enviroment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_ROOT_HOST: "%"
     steps:
       - checkout
 
@@ -26,7 +29,7 @@ jobs:
 
       # Database setup
       - run: bundle exec rake db:create
-      #- run: bundle exec rake db:schema:load
+      - run: bundle exec rake db:schema:load
 
       # Run rspec in parallel
       - type: shell
