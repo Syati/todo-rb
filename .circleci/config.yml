@@ -7,12 +7,23 @@ jobs:
       - image: circleci/ruby:2.4.1-node
         environment:
           RAILS_ENV: test
-      - image: circleci/mysql:5.7.18
-        enviroment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_ROOT_HOST: "%"
+          DATABASE_HOSTNAME: 127.0.0.1
+      - image: mysql:5.7.18
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+          MYSQL_ROOT_HOST: '%'
     steps:
       - checkout
+
+      - run:
+          name: install dockerize
+          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && tar -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          environment:
+            DOCKERIZE_VERSION: v0.5.0
+
+      - run:
+          name: Wait for db
+          command: ./dockerize -wait tcp://localhost:3306 -timeout 1m
 
       # Restore bundle cache
       - type: cache-restore
