@@ -1,0 +1,12 @@
+h1 Todos
+table
+  thead
+    tr
+      th title
+      th status
+
+  tbody
+    - @todos.each do |todo|
+      tr
+        td = todo.title
+        td = todo.status
