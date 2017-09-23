@@ -2,7 +2,7 @@
 require 'rails_helper'
 
 RSpec.describe 'todos/index.html.slim', type: :view do
-  it 'render about' do
+  it 'render index' do
     assign(:todos, [
              create(:todo)
            ])
