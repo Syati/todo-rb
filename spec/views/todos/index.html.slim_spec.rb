@@ -12,6 +12,6 @@ RSpec.describe 'todos/index.html.slim', type: :view do
     assert_select 'tbody>tr', 1
     assert_select 'td', text: todo.title
     assert_select 'td', text: todo.status
-
+    assert_select 'td>a', href: 'hoge'
   end
 end

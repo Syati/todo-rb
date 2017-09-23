@@ -4,9 +4,12 @@ table
     tr
       th title
       th status
+      th link
 
   tbody
     - @todos.each do |todo|
       tr
         td = todo.title
         td = todo.status
+        td
+          = link_to 'link', todo_path(todo)
