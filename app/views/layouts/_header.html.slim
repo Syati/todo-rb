@@ -1,2 +1,4 @@
 header#hader
   .m-header-title MyTodos
+  - unless user_signed_in?
+    = link_to 'Sign up', new_user_registration_path
