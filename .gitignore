@@ -10,6 +10,7 @@ node_modules/
 
 # webpack distl
 public/packs
+public/packs-test
 
 # See https://help.github.com/articles/ignoring-files for more about ignoring files.
 #
@@ -255,5 +256,3 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
-
-
