@@ -8,9 +8,6 @@
 // layout file, like app/views/layouts/application.html.erb
 
 // css
-import "normalize.css"
-import "milligram"
-
 import '../src/application';
 
 

@@ -1,0 +1,16 @@
+@import "~normalize.css";
+@import "~milligram";
+
+#header {
+}
+
+.m-header-title {
+  @extend h1;
+  margin: auto;
+  text-align: center;
+}
+
+#footer {
+  margin: auto;
+  text-align: center;
+}

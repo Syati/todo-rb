@@ -18,6 +18,6 @@ html
     = stylesheet_pack_tag 'application', media: 'all'
   body
     == render "layouts/header"
-    main
+    main.container
       == yield
     == render "layouts/footer"
