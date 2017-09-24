@@ -1,11 +1,8 @@
-
-
 .tern-port
 /public/assets
 .idea
 vendor
 !/app/assets/stylesheets/vendor
-bin
 node_modules/
 
 # webpack distl

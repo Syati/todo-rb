@@ -25,26 +25,36 @@ jobs:
           name: Wait for db
           command: ./dockerize -wait tcp://localhost:3306 -timeout 1m
 
-      # Restore bundle cache
+      # Restore cache
       - type: cache-restore
         key: todo-rb-{{ checksum "Gemfile.lock" }}
 
-      # Bundle install dependencies
+      - type: cache-restore
+        name: yarn-cache-restore
+        key: todo-rb-{{ checksum "yarn.lock" }}
+
+      # Install dependencies
       - run: bundle install --path vendor/bundle
+      - run: yarn install
 
-
-      # Store bundle cache
+      # Store  cache
       - type: cache-save
         key: todo-rb-{{ checksum "Gemfile.lock" }}
         paths:
           - vendor/bundle
+
+      - type: cache-save
+        name: yarn-cache-save
+        key: todo-rb-{{ checksum "yarn.lock" }}
+        paths:
+          - ~/.yarn-cache
 
       # Database setup
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
       # static file setup
-      - run: bundle exec rake webpacker:compile
+      - run: ./bin/rails webpacker:compile
 
       # Run rspec in parallel
       - type: shell
