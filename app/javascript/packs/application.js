@@ -10,4 +10,9 @@
 // css
 import '../src/application';
 
+// Rails lib≈
+import Rails from 'rails-ujs';
+
+Rails.start();
+
 
