@@ -1,8 +1,9 @@
-header#hader
-  .m-header-title MyTodos
-
-  - if user_signed_in?
-    = link_to 'Sign out', destroy_user_session_path, method: :delete
-  - else
-    = link_to 'Sign in', new_user_session_path
-    = link_to 'Sign up', new_user_registration_path
+header#header
+  .container.navigation
+    = link_to 'MyTodos', root_path, class: 'm-navigation-title'
+    ul.m-navigation-menu
+      - if user_signed_in?
+        li= link_to 'Sign out', destroy_user_session_path, method: :delete
+      - else
+        li= link_to 'log in', new_user_session_path
+        li= link_to 'Sign up', new_user_registration_path

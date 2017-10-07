@@ -17,7 +17,8 @@ html
     = javascript_pack_tag 'application'
     = stylesheet_pack_tag 'application', media: 'all'
   body
-    == render "layouts/header"
-    main.container
-      == yield
-    == render "layouts/footer"
+    main.wrapper
+      == render "layouts/header"
+      .container
+        == yield
+      == render "layouts/footer"
