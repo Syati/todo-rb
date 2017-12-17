@@ -6,6 +6,6 @@ RSpec.describe 'todos/show.html.slim', type: :view do
     todo = create(:todo)
     assign(:todo, todo)
     render
-    assert_select 'h1', text: todo.title
+    assert_select '#todo-title', value: todo.title
   end
 end

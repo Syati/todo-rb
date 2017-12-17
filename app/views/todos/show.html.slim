@@ -1,9 +1,4 @@
-h1 = @todo.title
-table
-  thead
-    tr
-      th status
-
-  tbody
-    tr
-      td = @todo.status
+= form_for @todo do |f|
+  = f.text_field :title, id: "todo-title"
+  = f.select :status, Todo.statuses
+  = f.text_area :description
