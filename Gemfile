@@ -33,7 +33,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'rubocop', '~> 0.45.0', require: false
+  gem 'rubocop', '~> 0.52.0', require: false
 end
 
 group :development do
