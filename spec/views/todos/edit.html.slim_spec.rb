@@ -12,5 +12,6 @@ RSpec.describe 'todos/edit.html.slim', type: :view do
     assert_select 'form input[type="text"]', value: todo.title
     assert_select 'form select', value: todo.status
     assert_select 'form textarea', value: todo.description
+    assert_select 'form input[type="submit"]', value: '更新'
   end
 end
