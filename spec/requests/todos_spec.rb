@@ -30,4 +30,17 @@ RSpec.describe 'Todos', type: :request do
     it { is_expected.to render_template(:edit) }
   end
 
+  describe 'Update /todos/:id' do
+    let(:todo) { create(:todo) }
+    let(:attr) { {title: 'New todo title', status: 'active', description: 'New description' } }
+    subject { put "/todos/#{todo.id}", params: {id: todo.id, todo: attr} }
+
+    it { is_expected.to render_template(:show) }
+
+    it 'includes the change of update in body' do
+      subject
+      expect(response.body).to include('New todo title')
+      expect(response.body).to include('New description')
+    end
+  end
 end

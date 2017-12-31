@@ -1,5 +1,5 @@
 = form_for @todo do |f|
   = f.text_field :title
-  = f.select :status, Todo.statuses
+  = f.select :status, Todo.statuses.keys.to_a
   = f.text_area :description
   = f.submit '更新'

@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   get    'about',   to: 'static_pages#about'
   get    'company', to: 'static_pages#company'
 
-  resources :todos, only: [:index, :show, :edit]
+  resources :todos, only: [:index, :show, :edit, :update]
 end
