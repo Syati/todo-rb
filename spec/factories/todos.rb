@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :todo do
     sequence(:title) { |n| "todo-title-#{n}" }
     status :active
-    description ''
+    sequence(:description) { |n| "todo-desc-#{n}" }
   end
 end
