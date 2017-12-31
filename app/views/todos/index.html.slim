@@ -9,7 +9,6 @@ table
   tbody
     - @todos.each do |todo|
       tr
-        td = todo.title
-        td = todo.status
         td
-          = link_to 'edit', edit_todo_path(todo)
+          = link_to todo.title, todo_path(todo)
+        td = todo.status
