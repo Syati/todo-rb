@@ -1,11 +1,12 @@
 # frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Todos', type: :request do
   let(:user) { create(:user) }
-  before {
+  before do
     sign_in create(:user)
-  }
+  end
 
   describe 'Get /todos' do
     it 'render ' do
@@ -26,7 +27,7 @@ RSpec.describe 'Todos', type: :request do
     let(:todo) { create(:todo) }
     subject { get "/todos/#{todo.id}/edit" }
 
-    it { is_expected.to render_template(:edit)}
+    it { is_expected.to render_template(:edit) }
   end
 
 end
