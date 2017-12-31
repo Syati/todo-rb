@@ -1,4 +1,7 @@
-= form_for @todo do |f|
-  = f.text_field :title, id: "todo-title"
-  = f.select :status, Todo.statuses
-  = f.text_area :description
+.todo-content
+  .todo-content-title
+    = @todo.title
+  .todo-content-status
+    = @todo.status
+  .todo-content-description
+    = @todo.description
