@@ -12,6 +12,7 @@ RSpec.describe 'todos/show.html.slim', type: :view do
     assert_select '.todo-content-title', text: todo.title
     assert_select '.todo-content-status', text: todo.status
     assert_select '.todo-content-description', text: todo.description
-    assert_select 'a[href=?].button', edit_todo_path(todo), text: '編集'
+    assert_select 'a[href=?].button', edit_todo_path(todo), text: t('todos.show.edit')
+    assert_select 'a[href=?].button', todos_path, text: t('todos.show.back')
   end
 end
