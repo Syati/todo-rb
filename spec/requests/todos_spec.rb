@@ -35,6 +35,20 @@ RSpec.describe 'Todos', type: :request do
     it { is_expected.to render_template(:new) }
   end
 
+  describe 'Post /todos' do
+    subject { post "/todos", params: { todo: todo } }
+
+    context 'with a valid params' do
+      let(:todo) { build(:todo).attributes }
+      it { is_expected.to eq(302) }
+    end
+
+    context 'with a invalid params' do
+      let(:todo) { { title: '', description: '' } }
+      it { is_expected.to render_template(:new) }
+    end
+  end
+
   describe 'Update /todos/:id' do
     let(:todo) { create(:todo) }
     let(:attr) { { title: 'New todo title', status: 'active', description: 'New description' } }

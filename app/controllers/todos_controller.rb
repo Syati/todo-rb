@@ -11,6 +11,15 @@ class TodosController < ApplicationController
     @todo = Todo.new
   end
 
+  def create
+    @todo = Todo.new(todo_params)
+    if @todo.save
+      redirect_to todos_path
+    else
+      render 'new'
+    end
+  end
+
   def show
     @todo = Todo.find(params[:id])
   end

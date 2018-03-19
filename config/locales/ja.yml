@@ -12,6 +12,8 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
   todos:
+    index:
+      new: 新規作成
     show:
       back: 戻る
       edit: 編集
