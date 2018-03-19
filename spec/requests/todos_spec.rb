@@ -30,6 +30,11 @@ RSpec.describe 'Todos', type: :request do
     it { is_expected.to render_template(:edit) }
   end
 
+  describe 'Get /todos/new' do
+    subject { get "/todos/new" }
+    it { is_expected.to render_template(:new) }
+  end
+
   describe 'Update /todos/:id' do
     let(:todo) { create(:todo) }
     let(:attr) { { title: 'New todo title', status: 'active', description: 'New description' } }

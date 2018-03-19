@@ -18,6 +18,10 @@ ja:
     edit:
       back: 戻る
       submit: 更新
+    new:
+      back: 戻る
+      submit: 登録
+
   date:
     abbr_day_names:
     - 日
